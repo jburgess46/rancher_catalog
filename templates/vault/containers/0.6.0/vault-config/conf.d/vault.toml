@@ -1,5 +1,5 @@
 [template]
-src = "vault.tmpl"
+src = "vault.hcl.tmpl"
 dest = "/vault/conf/vault.hcl"
 keys = [
     "/self/services/consul/fqdn",
