@@ -15,5 +15,3 @@ RUN wget --quiet --output-document=${VAULT_TMP} https://releases.hashicorp.com/v
 RUN unzip ${VAULT_TMP} -d ${VAULT_HOME}
 # Remove HashiCorp archive
 RUN rm -f ${VAULT_TMP}
-# ADD vault configuration
-ADD vault.hcl /
