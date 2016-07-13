@@ -9,7 +9,7 @@ vault:
   links:
     - consul
   ports:
-    - "8200/udp"
+    - "8200:8200"
   volumes_from:
     - vault-config
   command:
