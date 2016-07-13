@@ -4,5 +4,6 @@ ADD ./templates /etc/confd/templates
 ADD https://github.com/rancher/confd/releases/download/0.11.0-dev-rancher/confd-0.11.0-dev-rancher-linux-amd64 /confd
 RUN chmod +x /confd
 VOLUME /vault/conf
-ENTRYPOINT ["/confd"]
-CMD ["--backend", "rancher", "--prefix", "/2015-07-25"]
+ADD ./*.sh /
+
+ENTRYPOINT ["/run.sh"]
