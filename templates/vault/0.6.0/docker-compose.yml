@@ -16,6 +16,8 @@ vault:
     - vault
     - server
     - --config=/vault/conf/vault.hcl
+  cap_add:
+    - IPC_LOCK
   image: jburgess46/vault-5
   stdin_open: true
   labels:
