@@ -1,0 +1,16 @@
+vault:
+  build: ../containers/0.6.0/vault
+  volumes_from:
+    - vault-data-volume
+  labels:
+    io.rancher.sidekicks: vault-data-volume
+    io.rancher.container.hostname_override: container_name
+  entrypoint: ["/usr/local/bin/vault", "server", "--config=/vault.hcl"]
+  links:
+    - consul
+vault-data-volume:
+  image: alpine
+  net: none
+  command: /bin/true
+  volumes:
+    - /vault/conf/

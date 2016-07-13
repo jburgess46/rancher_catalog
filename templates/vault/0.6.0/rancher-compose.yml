@@ -1,0 +1,5 @@
+.catalog
+  name: vault
+  version: 0.6.0-rancher1
+  description: HashiCorp Vault - 0.6.0
+  minimum_rancher_version: v0.56
