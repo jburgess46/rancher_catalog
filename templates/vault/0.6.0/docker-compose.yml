@@ -1,16 +1,23 @@
-vault:
-  build: ../containers/0.6.0/vault
-  volumes_from:
-    - vault-data-volume
+vault-config:
+  restart: always
+  build: ../containers/0.6.0/vault-config
   labels:
-    io.rancher.sidekicks: vault-data-volume
     io.rancher.container.hostname_override: container_name
-  entrypoint: ["/usr/local/bin/vault", "server", "--config=/vault.hcl"]
+vault:
+  restart: always
+  tty: true
   links:
-    - consul
-vault-data-volume:
-  image: alpine
-  net: none
-  command: /bin/true
-  volumes:
-    - /vault/conf/
+    - consul:consul
+  ports:
+    - "8200/udp"
+  volumes_from:
+    - vault-config
+  command:
+    - vault
+    - server
+    - --config=/etc/confd/conf.d/vault.hcl
+  build: ../containers/0.6.0/vault
+  stdin_open: true
+  labels:
+    io.rancher.sidekicks: vault-config
+    io.rancher.container.hostname_override: container_name
