@@ -15,7 +15,7 @@ vault:
   command:
     - vault
     - server
-    - --config=/etc/confd/conf.d/vault.hcl
+    - --config=/vault/conf/vault.hcl
   image: jburgess46/vault
   stdin_open: true
   labels:
