@@ -1,13 +1,13 @@
 vault-config:
   restart: always
-  image: jburgess46/vault-config-2
+  image: jburgess46/vault-config-3
   labels:
     io.rancher.container.hostname_override: container_name
 vault:
   restart: always
   tty: true
   links:
-    - consul:consul
+    - consul
   ports:
     - "8200/udp"
   volumes_from:
@@ -16,7 +16,7 @@ vault:
     - vault
     - server
     - --config=/vault/conf/vault.hcl
-  image: jburgess46/vault-2
+  image: jburgess46/vault-3
   stdin_open: true
   labels:
     io.rancher.sidekicks: vault-config
