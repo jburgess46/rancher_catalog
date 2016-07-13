@@ -1,6 +1,6 @@
 vault-config:
   restart: always
-  image: jburgess46/vault-config
+  image: jburgess46/vault-config-2
   labels:
     io.rancher.container.hostname_override: container_name
 vault:
@@ -16,7 +16,7 @@ vault:
     - vault
     - server
     - --config=/vault/conf/vault.hcl
-  image: jburgess46/vault
+  image: jburgess46/vault-2
   stdin_open: true
   labels:
     io.rancher.sidekicks: vault-config
