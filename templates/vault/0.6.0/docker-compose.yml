@@ -1,6 +1,7 @@
 vault-config:
   restart: always
   image: jburgess46/vault-config-8
+  net: "container:vault"
   labels:
     io.rancher.container.hostname_override: container_name
 vault:
