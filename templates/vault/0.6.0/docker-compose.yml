@@ -1,3 +1,12 @@
+vault-config:
+  restart: always
+  image: jburgess46/vault-config-9
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: vault-data-volume
+  volumes_from:
+      - vault-data-volume
+  net: none
 vault:
   restart: always
   tty: true
@@ -17,15 +26,6 @@ vault:
   labels:
     io.rancher.sidekicks: vault-config
   stdin_open: true
-vault-config:
-  restart: always
-  image: jburgess46/vault-config-9
-  labels:
-    io.rancher.container.hostname_override: container_name
-    io.rancher.sidekicks: vault-data-volume
-  volumes_from:
-      - vault-data-volume
-  net: none
 vault-data-volume:
   image: busybox
   net: none
