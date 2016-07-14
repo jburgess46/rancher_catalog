@@ -23,8 +23,6 @@ vault:
   cap_add:
     - IPC_LOCK
   image: jburgess46/vault-9
-  labels:
-    io.rancher.sidekicks: vault-config
   stdin_open: true
 vault-data-volume:
   image: busybox
