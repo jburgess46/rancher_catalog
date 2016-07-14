@@ -1,11 +1,3 @@
-vault-config:
-  image: jburgess46/vault-config-9
-  labels:
-    io.rancher.sidekicks: vault-data-volume
-  volumes_from:
-    - vault-data-volume
-  ports:
-    - "8200:8200"
 vault:
   net: 'container:vault-config'
   restart: always
@@ -23,6 +15,14 @@ vault:
   image: jburgess46/vault-9
   stdin_open: true
   io.rancher.sidekicks: vault-data-volume, vault-config
+vault-config:
+  image: jburgess46/vault-config-9
+  labels:
+    io.rancher.sidekicks: vault-data-volume
+  volumes_from:
+    - vault-data-volume
+  ports:
+    - "8200:8200"
 vault-data-volume:
   image: busybox
   net: none
