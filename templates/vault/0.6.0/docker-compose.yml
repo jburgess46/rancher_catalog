@@ -13,12 +13,12 @@ vault:
     - --config=/vault/conf/vault.hcl
   cap_add:
     - IPC_LOCK
-  image: jburgess46/vault-8
+  image: jburgess46/vault-9
   stdin_open: true
   net: 'container:vault-config'
 vault-config:
   restart: always
-  image: jburgess46/vault-config-8
+  image: jburgess46/vault-config-9
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: vault-data-volume, vault
