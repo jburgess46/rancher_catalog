@@ -14,16 +14,18 @@ vault:
   cap_add:
     - IPC_LOCK
   image: jburgess46/vault-9
+  labels:
+    io.rancher.sidekicks: vault-config
   stdin_open: true
-  net: 'container:vault-config'
 vault-config:
   restart: always
   image: jburgess46/vault-config-9
   labels:
     io.rancher.container.hostname_override: container_name
-    io.rancher.sidekicks: vault-data-volume, vault
+    io.rancher.sidekicks: vault-data-volume
   volumes_from:
       - vault-data-volume
+  net: none
 vault-data-volume:
   image: busybox
   net: none
