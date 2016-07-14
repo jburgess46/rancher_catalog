@@ -14,7 +14,8 @@ vault:
     - IPC_LOCK
   image: jburgess46/vault-9
   stdin_open: true
-  io.rancher.sidekicks: vault-data-volume, vault-config
+  labels:
+    io.rancher.sidekicks: vault-data-volume, vault-config
 vault-config:
   image: jburgess46/vault-config-9
   labels:
