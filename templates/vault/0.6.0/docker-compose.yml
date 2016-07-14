@@ -5,17 +5,17 @@ vault-config:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: vault-data-volume
   volumes_from:
-      - vault-data-volume
-  net: none
+    - vault-data-volume
+  ports:
+    - "8200:8200"
 vault:
   restart: always
   tty: true
   links:
     - consul
-  ports:
-    - "8200:8200"
   volumes_from:
-    - vault-data-volume
+    - vault-config
+  net: "containers:vault-config"
   command:
     - vault
     - server
