@@ -2,5 +2,5 @@
 src = "vault.hcl.tmpl"
 dest = "/vault/conf/vault.hcl"
 keys = [
-    "/self/services/consul/fqdn",
+    "/self/container/primary_ip",
 ]
