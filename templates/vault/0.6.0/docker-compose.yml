@@ -1,6 +1,6 @@
 vault-config:
   restart: always
-  image: jburgess46/vault-config-6
+  image: jburgess46/vault-config
   labels:
     io.rancher.container.hostname_override: container_name
 vault:
@@ -18,7 +18,7 @@ vault:
     - --config=/vault/conf/vault.hcl
   cap_add:
     - IPC_LOCK
-  image: jburgess46/vault-6
+  image: jburgess46/vault
   stdin_open: true
   labels:
     io.rancher.sidekicks: vault-config
