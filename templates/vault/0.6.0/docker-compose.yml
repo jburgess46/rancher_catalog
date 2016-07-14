@@ -23,4 +23,3 @@ vault:
   stdin_open: true
   labels:
     io.rancher.sidekicks: vault-config
-    io.rancher.container.hostname_override: container_name
