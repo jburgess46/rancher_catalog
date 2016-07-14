@@ -1,7 +1,7 @@
 backend "consul" {
     address = "consul.consul:8500"
     path = "vault"
-    advertise_addr = "http://{{getv "/self/container/primary_ip"}}:8200"
+    advertise_addr = "http://{{getv "/self/host/agent_ip"}}:8200"
 }
 
 listener "tcp" {
