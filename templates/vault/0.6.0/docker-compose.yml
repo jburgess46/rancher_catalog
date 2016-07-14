@@ -23,7 +23,6 @@ vault-config:
     io.rancher.sidekicks: vault-data-volume
   volumes_from:
     - vault-data-volume
-  net: none
 vault-data-volume:
   image: busybox
   net: none
