@@ -1,7 +1,8 @@
 vault:
-  net: 'container:vault-config'
   restart: always
   tty: true
+  ports:
+    - "8200:8200"
   links:
     - consul
   volumes_from:
@@ -12,18 +13,17 @@ vault:
     - --config=/vault/conf/vault.hcl
   cap_add:
     - IPC_LOCK
-  image: jburgess46/vault-9
+  image: jburgess46/vault-10
   stdin_open: true
   labels:
     io.rancher.sidekicks: vault-data-volume, vault-config
 vault-config:
-  image: jburgess46/vault-config-9
+  image: jburgess46/vault-config-10
   labels:
     io.rancher.sidekicks: vault-data-volume
   volumes_from:
     - vault-data-volume
-  ports:
-    - "8200:8200"
+  net: none
 vault-data-volume:
   image: busybox
   net: none
