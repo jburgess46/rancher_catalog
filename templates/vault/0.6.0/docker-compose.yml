@@ -1,9 +1,3 @@
-vault-config:
-  restart: always
-  image: jburgess46/vault-config-8
-  net: "container:vault"
-  labels:
-    io.rancher.container.hostname_override: container_name
 vault:
   restart: always
   tty: true
@@ -23,3 +17,9 @@ vault:
   stdin_open: true
   labels:
     io.rancher.sidekicks: vault-config
+vault-config:
+  restart: always
+  net: 'container:vault'
+  image: jburgess46/vault-config-8
+  labels:
+    io.rancher.container.hostname_override: container_name
