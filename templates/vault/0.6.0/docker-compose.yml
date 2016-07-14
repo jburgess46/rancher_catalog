@@ -15,7 +15,7 @@ vault:
     - consul
   volumes_from:
     - vault-config
-  net: "containers:vault-config"
+  net: "container:vault-config"
   command:
     - vault
     - server
