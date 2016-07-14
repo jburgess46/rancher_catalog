@@ -6,7 +6,7 @@ vault:
   ports:
     - "8200:8200"
   volumes_from:
-    - vault-config
+    - vault-data-volume
   command:
     - vault
     - server
@@ -15,11 +15,20 @@ vault:
     - IPC_LOCK
   image: jburgess46/vault-8
   stdin_open: true
-  labels:
-    io.rancher.sidekicks: vault-config
+  net: 'container:vault-config'
 vault-config:
   restart: always
-  net: 'container:vault'
   image: jburgess46/vault-config-8
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: vault-data-volume, vault-server
+  volumes_from:
+      - vault-data-volume
+vault-data-volume:
+  image: busybox
+  net: none
+  command: /bin/true
+  labels:
+    io.rancher.container.start_once: true
+  volumes:
+    - /vault/conf
