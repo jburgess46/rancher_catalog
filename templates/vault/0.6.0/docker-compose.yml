@@ -2,10 +2,9 @@ vault:
   restart: always
   tty: true
   ports:
-    - "8200:8200"
-    - "8125:8125"
+    - "8200:${vault-port}"
   external_links:
-    - consul/consul:consul
+    - ${backend}
   volumes_from:
     - vault-data-volume
   command:
