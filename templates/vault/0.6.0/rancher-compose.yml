@@ -6,6 +6,20 @@
   minimum_rancher_version: v0.56.0
   maintainer: "Jacob Burgess <jburgess@forsythe.com>"
   uuid: vault-0.6.0
+  questions:
+    - variable: cert
+      label: "TLS / SSL server certificate"
+      description: "Vault server certificate for TLS / SSL support"
+      required: false
+      type: certificate
+    - variable: backend
+      label: "HA backend"
+      description: "Vault server backend persistence store for HA"
+      required: false
+      type: enum
+      options: 
+        - "Consul"
+        - "Zookeeper"
 vault:
   scale: 2
 vault-config:
