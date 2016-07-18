@@ -16,10 +16,7 @@
       label: "HA backend"
       description: "Vault server backend persistence store for HA"
       required: false
-      type: enum
-      options: 
-        - "Consul"
-        - "Zookeeper"
+      type: service
 vault:
   scale: 2
 vault-config:
