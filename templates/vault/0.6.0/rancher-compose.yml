@@ -14,7 +14,18 @@
       type: certificate
     - variable: backend
       label: "HA backend"
-      description: "Vault server backend persistence store for HA"
+      description: "Vault server backend persistence store for HA. Don't select service for development service"
+      required: false
+      type: service
+    - variable: vault-port
+      label: "Vault port"
+      default: "8200"
+      description: "Vault port exposed for host communication"
+      required: false
+      type: int
+    - variable: telemtry
+      label: "Vault telemtry for statisical aggregration"
+      description: "Vault server telemtry for statistical aggregation"
       required: false
       type: service
 vault:
@@ -23,3 +34,4 @@ vault-config:
   scale: 2
 vault-data-volume:
   scale: 2
+
