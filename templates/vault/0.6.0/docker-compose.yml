@@ -3,8 +3,9 @@ vault:
   tty: true
   ports:
     - "8200:8200"
+    - "8125:8125"
   links:
-    - consul
+    - consul:consul
   volumes_from:
     - vault-data-volume
     - vault-config
