@@ -6,4 +6,4 @@ owner = "root"
 mode = "0600"
 keys = [
   "certificate",
-  ]
+]
