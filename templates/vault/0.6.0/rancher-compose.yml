@@ -28,6 +28,13 @@
       description: "Vault server telemtry for statistical aggregation"
       required: false
       type: service
+metadata:
+  vault:
+    certificate: ${cert}
+    backend: ${backend}
+    port: ${vault-port}
+    telemtry: ${telemtry}
+
 vault:
   scale: 2
 vault-config:
