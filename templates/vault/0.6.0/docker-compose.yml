@@ -17,15 +17,17 @@ vault:
   image: jburgess46/vault-10
   stdin_open: true
   labels:
+    io.rancher.container.pull_image: always
     io.rancher.sidekicks: vault-data-volume, vault-config
 vault-config:
   image: jburgess46/vault-config-10
   labels:
+    io.rancher.container.pull_image: always
     io.rancher.sidekicks: vault-data-volume
   volumes_from:
     - vault-data-volume
 vault-data-volume:
-  image: busybox
+  image: alpine
   net: none
   command: /bin/true
   labels:
