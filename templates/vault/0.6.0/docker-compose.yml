@@ -4,11 +4,10 @@ vault:
   ports:
     - "8200:8200"
     - "8125:8125"
-  links:
-    - consul:consul
+  external_links:
+    - consul/consul:consul
   volumes_from:
     - vault-data-volume
-    - vault-config
   command:
     - vault
     - server

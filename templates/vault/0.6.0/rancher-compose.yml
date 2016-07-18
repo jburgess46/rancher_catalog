@@ -2,7 +2,13 @@
   name: Vault
   description: |
     HashiCorp Vault
-  version: "0.6.0-rancher1"
+  version: "0.6.0"
   minimum_rancher_version: v0.56.0
   maintainer: "Jacob Burgess <jburgess@forsythe.com>"
-  uuid: vault-0
+  uuid: vault-0.6.0
+vault:
+  scale: 2
+vault-config:
+  scale: 2
+vault-data-volume:
+  scale: 2
