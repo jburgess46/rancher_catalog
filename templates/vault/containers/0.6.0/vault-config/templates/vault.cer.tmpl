@@ -1,1 +1,3 @@
+{{ if (eq (getv "/services/vault/metadata/tls_support") "true") }}
 {{getv "/cert"}}
+{{ end }}
