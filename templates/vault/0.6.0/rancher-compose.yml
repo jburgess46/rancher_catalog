@@ -17,7 +17,7 @@
       description: "Vault server backend persistence store for HA. Don't select service for development service"
       required: false
       type: service
-    - variable: vault-port
+    - variable: vault_port
       label: "Vault port"
       default: "8200"
       description: "Vault port exposed for host communication"
@@ -32,7 +32,7 @@ metadata:
   vault:
     certificate: ${cert}
     backend: ${backend}
-    port: ${vault-port}
+    port: ${vault_port}
     telemtry: ${telemtry}
 
 vault:
