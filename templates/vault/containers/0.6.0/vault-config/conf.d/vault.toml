@@ -2,6 +2,6 @@
 src = "vault.hcl.tmpl"
 dest = "/vault/conf/vault.hcl"
 keys = [
-    "/services/vault/metadata/backend"
+    "/services/vault/metadata/backend",
     "/self/host/agent_ip",
 ]
