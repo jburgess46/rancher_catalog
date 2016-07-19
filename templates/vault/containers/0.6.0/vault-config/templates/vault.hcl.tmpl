@@ -1,16 +1,11 @@
 backend "{{getv "/services/vault/metadata/backend"}}" {
     address = "consul.consul:8500"
     path = "vault"
-    advertise_addr = "http://{{getv "/self/host/agent_ip"}}:8200"
+    advertise_addr = "http://{{getv "/self/host/agent_ip"}}:{{getv "services/vault/metadata/vault_port"}}"
 }
 
 listener "tcp" {
     address = "0.0.0.0:8200"
-    tls_disable = 1
+    tls_disable = {{getv "/services/vault/metadata/tls-support"}}
 }
 
-telemetry {
-    statsite_address = "0.0.0.0:8125"
-      disable_hostname = true
-      tls_disable = 1
-}
