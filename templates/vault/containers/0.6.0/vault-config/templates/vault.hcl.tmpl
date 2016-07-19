@@ -6,6 +6,6 @@ backend "{{getv "/services/vault/metadata/backend"}}" {
 
 listener "tcp" {
     address = "0.0.0.0:8200"
-    tls_disable = {{getv "/services/vault/metadata/tls-support"}}
+    tls_disable = {{getv "/services/vault/metadata/tls_support"}}
 }
 
