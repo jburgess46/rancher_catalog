@@ -15,7 +15,15 @@
     - variable: backend
       label: "HA backend"
       description: "Vault server backend persistence store for HA. Don't select service for development service"
-      required: false
+      required: true
+      type: enum
+      options:
+        - consul
+        - zookeeper
+    - variable: backend_service
+      label: "External link service"
+      description: "Vault HA backend service link"
+      required: true
       type: service
     - variable: vault_port
       label: "Vault port"
@@ -31,6 +39,7 @@
 metadata:
   vault:
     certificate: ${cert}
+    backend_service: ${backend_service}
     backend: ${backend}
     port: ${vault_port}
     telemtry: ${telemtry}
