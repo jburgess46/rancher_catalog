@@ -4,7 +4,7 @@ vault:
   ports:
     - ${vault_port}
   external_links:
-    - ${backend}
+    - ${backend_service}:${backend}
   volumes_from:
     - vault-data-volume
   command:
