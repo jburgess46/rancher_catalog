@@ -5,5 +5,5 @@ keys = [
     "/services/vault/metadata/backend",
     "/self/host/agent_ip",
     "/services/vault/metadata/port",
-    "/services/vault/metadata/tls_support",
+    "/services/vault/metadata/protocol",
 ]
