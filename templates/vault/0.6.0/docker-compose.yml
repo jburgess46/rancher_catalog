@@ -1,6 +1,7 @@
 vault:
   restart: always
   tty: true
+  net: container:vault-config
   ports:
     - "${vault_port}:8200"
   external_links:
