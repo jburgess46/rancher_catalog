@@ -5,4 +5,4 @@ ADD https://github.com/rancher/confd/releases/download/0.11.0-dev-rancher/confd-
 RUN chmod +x /confd
 VOLUME /vault/conf
 ENTRYPOINT ["/confd"]
-CMD ["--backend", "rancher", "--prefix", "/2015-07-25"]
+CMD ["--backend", "rancher", "--prefix", "/2015-07-25", "-debug"]
