@@ -11,6 +11,9 @@ listener "tcp" {
     address = "0.0.0.0:{{getv "/services/vault/metadata/port"}}"
     {{ if (eq (getv "/services/vault/metadata/tls_support") "true") }}
     tls_disable = 0
+    tls_cert_file = vault.cer
+    tls_key_file = vault.pem
+    tls_min_version = "tls12"
     {{ else }}
     tls_disable = 1
     {{ end }}

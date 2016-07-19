@@ -16,7 +16,12 @@
       label: "TLS / SSL server certificate"
       description: "Vault server certificate for TLS / SSL support"
       required: false
-      type: certificate
+      type: multiline
+    - variable: key
+      label: "TLS / SSL server key"
+      description: "Vault private key for TLS / SSL support"
+      required: false
+      type: multiline
     - variable: backend
       label: "HA backend"
       description: "Vault server backend persistence store for HA. Don't select service for development service"
@@ -45,7 +50,8 @@ vault:
   scale: 2
   metadata:
     tls_support: ${tls_support}
-    certificate: ${cert}
+    cert: ${cert}
+    key: ${key}
     backend_service: ${backend_service}
     backend: ${backend}
     port: ${vault_port}
