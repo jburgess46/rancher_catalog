@@ -1,7 +1,7 @@
 backend "{{getv "/services/vault/metadata/backend"}}" {
     address = "consul.consul:8500"
     path = "vault"
-    advertise_addr = "http://{{getv "/self/host/agent_ip"}}:{{getv "/services/vault/metadata/vault_port"}}"
+    advertise_addr = "http://{{getv "/self/host/agent_ip"}}:{{getv "/services/vault/metadata/port"}}"
 }
 
 listener "tcp" {

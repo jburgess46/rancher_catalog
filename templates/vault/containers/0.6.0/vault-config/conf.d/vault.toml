@@ -4,5 +4,5 @@ dest = "/vault/conf/vault.hcl"
 keys = [
     "/services/vault/metadata/backend",
     "/self/host/agent_ip",
-    "/services/vault/metadata/vault_port",
+    "/services/vault/metadata/port",
 ]
