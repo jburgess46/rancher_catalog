@@ -7,14 +7,11 @@
   maintainer: "Jacob Burgess <jburgess@forsythe.com>"
   uuid: vault-0.6.0
   questions:
-    - variable: protocol
+    - variable: tls_support
       label: "TLS / SSL support"
       description: "Enable TLS / SSL support for Vault configuration"
       required: true
-      type: enum
-      options:
-        - http
-        - https
+      type: boolean
     - variable: cert
       label: "TLS / SSL server certificate"
       description: "Vault server certificate for TLS / SSL support"
@@ -47,7 +44,7 @@
 vault:
   scale: 2
   metadata:
-    protocol: ${protocol}
+    tls_support: ${tls_support}
     certificate: ${cert}
     backend_service: ${backend_service}
     backend: ${backend}
