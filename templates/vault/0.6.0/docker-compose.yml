@@ -2,7 +2,7 @@ vault:
   restart: always
   tty: true
   ports:
-    - ${vault_port}
+    - "${vault_port}:8200"
   external_links:
     - ${backend_service}:${backend}
   volumes_from:
