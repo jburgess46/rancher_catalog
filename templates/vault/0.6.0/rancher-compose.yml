@@ -44,7 +44,7 @@
 vault:
   scale: 2
   metadata:
-    tls-support: ${tls_support}
+    tls_support: ${tls_support}
     certificate: ${cert}
     backend_service: ${backend_service}
     backend: ${backend}
