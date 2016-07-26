@@ -1,8 +1,4 @@
 name: Vault
 description: |
   HashiCorp Vault
-version: 0.6.0
-category: Security
-maintainer: Jacob Burgess <jburgess@forsythe.com>
-license: "Later"
-projectURL: "Later"
+version: 0
