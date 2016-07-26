@@ -22,6 +22,14 @@
       description: "Vault private key for TLS / SSL support"
       required: false
       type: multiline
+    - variable: backend
+      label: "HA backend service"
+      description: "HA backend"
+      required: true
+      type: enum
+      options:
+        - consul
+        - zookeeper
     - variable: backend_service
       label: "External link service"
       description: "Vault HA backend service link"
@@ -44,6 +52,7 @@ vault:
     tls_support: ${tls_support}
     cert: ${cert}
     key: ${key}
+    backend: ${backend}
     backend_service: ${backend_service}
     port: ${vault_port}
     telemtry: ${telemtry}
