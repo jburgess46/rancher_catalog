@@ -1,7 +1,7 @@
 name: Vault
 description: |
   HashiCorp Vault
-version: "0.6.0-rancher1"
+version: 0.6.0-rancher1
 category: "Security"
 catalog: "Community"
 maintainer: "Forsythe Technology Group"

@@ -1,9 +1,0 @@
-[template]
-prefix = "/services/vault/metadata"
-src = "vault.cer.tmpl"
-dest = "/vault/conf/vault.cer"
-owner = "root"
-mode = "0644"
-keys = [
-  "/cert",
-]
