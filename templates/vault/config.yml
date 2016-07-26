@@ -1,6 +1,6 @@
 name: Vault
 description: |
-  HashiCorp Vault
+  Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
 version: 0.6.0-rancher1
 category: "Security"
 support: "Maintained by community members"

@@ -1,7 +1,5 @@
 .catalog:
   name: Vault
-  description: |
-    HashiCorp Vault
   version: "0.6.0-rancher1"
   minimum_rancher_version: v0.56.0
   uuid: vault-0.6.0
@@ -11,16 +9,6 @@
       description: "Enable TLS / SSL support for Vault configuration"
       required: true
       type: boolean
-    - variable: cert
-      label: "TLS / SSL server certificate"
-      description: "Vault server certificate for TLS / SSL support"
-      required: false
-      type: multiline
-    - variable: key
-      label: "TLS / SSL server key"
-      description: "Vault private key for TLS / SSL support"
-      required: false
-      type: multiline
     - variable: backend
       label: "HA backend service"
       description: "HA backend"
@@ -29,22 +17,27 @@
       options:
         - consul
         - zookeeper
+    - variable: cert
+      label: "TLS / SSL server certificate"
+      description: "Vault server certificate for TLS / SSL support"
+      required: false
+      type: multiline
     - variable: backend_service
       label: "External link service"
       description: "Vault HA backend service link"
       required: true
       type: service
+    - variable: key
+      label: "TLS / SSL server key"
+      description: "Vault private key for TLS / SSL support"
+      required: false
+      type: multiline
     - variable: vault_port
       label: "Vault port"
       default: "8200"
       description: "Vault port exposed for host communication"
       required: false
       type: int
-    - variable: telemtry
-      label: "Vault telemtry for statisical aggregration"
-      description: "Vault server telemtry for statistical aggregation"
-      required: false
-      type: service
 vault:
   scale: 2
   metadata:
@@ -54,7 +47,6 @@ vault:
     backend: ${backend}
     backend_service: ${backend_service}
     port: ${vault_port}
-    telemtry: ${telemtry}
 vault-config:
   scale: 2
 vault-data-volume:
