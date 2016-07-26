@@ -10,20 +10,20 @@
    - Certificate and key for Vault TLS / SSL support. [ OPTIONAL]
    - HA Backend service. [ REQUIRED ]
    - Vault listen port. [ REQUIRED ]
+    
+   The templates uses two Docker images one as the main image and the other one is the sidekick:
 
-    The templates uses two Docker images one as the main image and the other one is the sidekick:
-
-    - [vault]
-    - [vault-config]
+   - [vault]
+   - [vault-config]
 
 ### Usage:
       
-    Select Vault from catalog.
+   Select Vault from catalog.
       
-    If TLS / SSL support is enabled, enter certificate and key for encrypted communication between clients and vault instances.
+   If TLS / SSL support is enabled, enter certificate and key for encrypted communication between clients and vault instances.
 
-    Select backend service.
+   Select backend service.
 
-    Link backend service and HA vault instance.
+   Link backend service and HA vault instance.
 
-    Click deploy.
+   Click deploy.
