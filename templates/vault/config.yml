@@ -3,12 +3,4 @@ description: |
   HashiCorp Vault
 version: 0.6.0-rancher1
 category: "Security"
-catalog: "Community"
-maintainer: "Forsythe Technology Group"
 support: "Maintained by community members"
-info: "This template creates, a scaled HA HashiCorp Vault instance. The configuration is generated with confd from Rancher metadata. Cluster size are variable after deployment."
-usage: "  1.) Support TLS / SSL is disabled by default.
-          2.) If TLS / SSL support is enabled, configure TLS / SSL certificate and private key for Vault configuration.
-          3.) Select HA backend.
-          4.) Link Vault instances to HA backend service running in the same environment. Rancher doesn't support cross environment links at the moment.
-          5.) Select the port for Vault to listen."
