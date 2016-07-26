@@ -6,6 +6,7 @@
  Template creates a highly available Vault instance that is dependant on a HA backend service. Vault configuration is generated with confd from Rancher metadata. 
 
    The variables used in this template include:
+   - Number of Vault instances [ REQUIRED ]
    - Vault Port [ REQUIRED ]
    - Backend [ REQUIRED ]
    - Backend Service [ REQUIRED ]

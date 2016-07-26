@@ -4,6 +4,12 @@
   minimum_rancher_version: v0.56.0
   uuid: vault-0.6.0
   questions:
+    - variable: instances
+      label: "Vault instances"
+      description: "Number of Vault instances in HA cluster"
+      type: int
+      required: true
+      default: 2
     - variable: tls_support
       label: "TLS / SSL support"
       description: "Enable TLS / SSL support for Vault configuration"
@@ -45,7 +51,7 @@
       type: int
       default: 8500
 vault:
-  scale: 2
+  scale: ${instances}
   metadata:
     tls_support: ${tls_support}
     cert: ${cert}
@@ -55,6 +61,6 @@ vault:
     port: ${vault_port}
     backend_port: ${backend_port}
 vault-config:
-  scale: 2
+  scale: ${instances}
 vault-data-volume:
-  scale: 2
+  scale: ${instances}
