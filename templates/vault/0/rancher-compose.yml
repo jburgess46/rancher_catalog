@@ -39,17 +39,17 @@
       description: "Vault private key for TLS / SSL support"
       required: false
       type: multiline
+    - variable: backend_port
+      label: "HA backend port"
+      required: true
+      type: int
+      default: 8500
     - variable: vault_port
       label: "Vault port"
       default: 8200
       description: "Vault port exposed for host communication"
       required: true
       type: int
-    - variable: backend_port
-      label: "HA backend port"
-      required: true
-      type: int
-      default: 8500
 vault:
   scale: ${instances}
   metadata:
