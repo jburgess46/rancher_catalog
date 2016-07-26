@@ -3,5 +3,6 @@ description: |
   HashiCorp Vault
 version: "0.6.0-rancher1"
 category: "Security"
+catalog: "Community"
 maintainer: "Forsythe Technology Group"
 support: "Maintained by community members"
