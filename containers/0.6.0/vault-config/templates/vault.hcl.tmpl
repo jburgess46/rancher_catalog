@@ -1,0 +1,22 @@
+backend "{{getv "/services/vault/metadata/backend"}}" {
+    {{ $url := split (getv "/services/vault/metadata/backend_service") "/" }}
+    address = "{{index $url 0}}.{{index $url 1}}:8500"
+    path = "vault"
+    {{ if (eq (getv "/services/vault/metadata/tls_support") "true") }}
+    advertise_addr = "https://{{getv "/self/host/agent_ip"}}:{{getv "/services/vault/metadata/port"}}"
+    {{ else }}
+    advertise_addr = "http://{{getv "/self/host/agent_ip"}}:{{getv "/services/vault/metadata/port"}}"
+    {{ end }}
+}
+listener "tcp" {
+    address = "0.0.0.0:{{getv "/services/vault/metadata/port"}}"
+    {{ if (eq (getv "/services/vault/metadata/tls_support") "true") }}
+    tls_disable = 0
+    tls_cert_file = "/vault/conf/vault.cer"
+    tls_key_file = "/vault/conf/vault.pem"
+    tls_min_version = "tls12"
+    {{ else }}
+    tls_disable = 1
+    {{ end }}
+}
+
