@@ -14,6 +14,7 @@
       description: "HA backend"
       required: true
       type: enum
+      default: "consul"
       options:
         - consul
         - zookeeper
@@ -34,10 +35,15 @@
       type: multiline
     - variable: vault_port
       label: "Vault port"
-      default: "8200"
+      default: 8200
       description: "Vault port exposed for host communication"
       required: false
       type: int
+    - variable: backend_port
+      label: "HA backend port"
+      required: true
+      type: int
+      default: 8500
 vault:
   scale: 2
   metadata:
@@ -47,6 +53,7 @@ vault:
     backend: ${backend}
     backend_service: ${backend_service}
     port: ${vault_port}
+    backend_port: ${backend_port}
 vault-config:
   scale: 2
 vault-data-volume:
