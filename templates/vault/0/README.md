@@ -3,18 +3,21 @@
 
 ### Info:
 
- This template creates 2 HA Vault instances that is dependant on HA backend service configured in rancher. Vault configuration is generated with confd from Rancher metadata. 
+ Template creates a highly available Vault instance that is dependant on a HA backend service. Vault configuration is generated with confd from Rancher metadata. 
 
    The variables used in this template include:
-   - TLS / SSL support. [ OPTIONAL ]
-   - Certificate and key for Vault TLS / SSL support. [ OPTIONAL]
-   - HA Backend service. [ REQUIRED ]
-   - Vault listen port. [ REQUIRED ]
+   - Vault Port [ REQUIRED ]
+   - Backend [ REQUIRED ]
+   - Backend Service [ REQUIRED ]
+   - Backend Port [ REQUIRED ]
+   - TLS / SSL support [ OPTIONAL ]
+   - Certificate and key for Vault TLS / SSL support. [ OPTIONAL ]
     
-   The templates uses two Docker images one as the main image and the other one is the sidekick:
+   The templates uses three Docker images, one as the main image and the other two as sidekicks:
 
    - [vault]
    - [vault-config]
+   - [vault-data-volume]
 
 ### Usage:
       
